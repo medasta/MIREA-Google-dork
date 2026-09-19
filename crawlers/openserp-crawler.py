@@ -1,4 +1,5 @@
 import requests
+import time
 
 
 # make_query принимает на вход объект сессии, поисковой запрос,
@@ -39,7 +40,7 @@ def extract_results(response: dict) -> list[str]:
 # engines - поисковые движки OpenSERP
 # openserp_url - URL сервиса OpenSERP
 # Возвращает множество, содержащее прямые ссылки на сайты.
-def search_by_openserp(url_limit: int, query: str, engines: list[str], openserp_url: str) -> set[str]:
+def search_by_openserp(url_limit: int, query: str, engines: list[str], openserp_url: str, delay: int) -> set[str]:
     urls = set()
     start = 0
 
@@ -65,4 +66,5 @@ def search_by_openserp(url_limit: int, query: str, engines: list[str], openserp_
 
         if start is None:
             break
+        time.sleep(delay)
     return urls

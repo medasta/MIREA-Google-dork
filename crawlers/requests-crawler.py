@@ -57,7 +57,7 @@ def get_next_page(page, current_offset: int) -> dict | None:
 # sleep_counter - задержка между запросами
 # headers - HTTP-заголовки
 # Возвращает множество, содержащее прямые ссылки на сайты.
-def search_by_requests(query: str, url_limit: int, static_url: str, sleep_counter: int, headers: dict) -> set[str]:
+def search_by_requests(query: str, url_limit: int, static_url: str, delay: int, headers: dict) -> set[str]:
     session = requests.Session()
     session.headers.update(headers)
 
@@ -98,7 +98,7 @@ def search_by_requests(query: str, url_limit: int, static_url: str, sleep_counte
         seen_pages.add(next_offset)
         current_offset = next_offset
 
-        time.sleep(sleep_counter)
+        time.sleep(delay)
 
         response = session.post(
             static_url,

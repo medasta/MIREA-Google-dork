@@ -51,7 +51,7 @@ def get_urls(results: list[dict]) -> set[str]:
 # sleep_counter - задержка между запросами
 # searxng_url - URL сервиса SearXNG
 # Возвращает множество, содержащее прямые ссылки на сайты.
-def search_by_searxng(url_limit: int, query: str, engines: list[str], sleep_counter: int, searxng_url: str) -> set[str]:
+def search_by_searxng(url_limit: int, query: str, engines: list[str], delay: int, searxng_url: str) -> set[str]:
     session = requests.Session()
 
     page = 1
@@ -79,7 +79,7 @@ def search_by_searxng(url_limit: int, query: str, engines: list[str], sleep_coun
 
         page += 1
 
-        time.sleep(sleep_counter)
+        time.sleep(delay)
 
     session.close()
 
