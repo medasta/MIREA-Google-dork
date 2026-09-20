@@ -1,0 +1,33 @@
+{
+    "crawler-configurations": [
+        {
+            "url-limit": 100,
+            "delay": 4,
+
+            "query-list": [
+                "q1",
+                "q2",
+                "q3"
+            ],
+
+            "selenium-settings": {
+                "driver-location": "MIREA-Google-dork/crawlers/selenium-drivers/geckodriver"
+            },
+
+            "searxng-settings": {
+                "engines": ["google", "yandex", "duckduckgo"],
+                "searxng-url": "http://127.0.0.1:8080"
+            },
+
+            "openserp-settings": {
+                "engines": ["google", "yandex", "duckduckgo"],
+                "openserp-url": "http://localhost:7001/mega/search"
+            },
+
+            "requests-settings": {
+                
+            }
+        }
+    ]
+
+}
